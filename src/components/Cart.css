@@ -6,6 +6,7 @@
   right: 0px;
   top: 0px;
   width: 300px;
+  overflow-x: auto;
 }
 
 .cart img {

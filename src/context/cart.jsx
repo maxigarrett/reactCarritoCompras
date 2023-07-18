@@ -15,17 +15,24 @@ export const CartProvider = ({ children }) => {
       //   return setcart(newProduct);
 
       const newProduct = cart.map((item) => item);
-      console.log(newProduct, newProduct[productInCartId]);
       newProduct[productInCartId].cuantity += 1;
       return setcart(newProduct);
     }
     setcart([...cart, { ...product, cuantity: 1 }]);
   };
 
-  const clearCart = () => setcart(INITIAL_CART);
+  const removeFromCart = (product) => {
+    const filteredProduct = [...cart].filter((item) => item.id !== product.id);
+    // console.log(filteredProduct);
+    setcart(filteredProduct);
+  };
+
+  const clearCart = () => setcart([]);
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, clearCart }}>
+    <CartContext.Provider
+      value={{ cart, addToCart, clearCart, removeFromCart }}
+    >
       {children}
     </CartContext.Provider>
   );

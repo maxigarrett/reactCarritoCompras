@@ -9,7 +9,8 @@
   border-radius: 32px;
   opacity: 0.95;
   backdrop-filter: blur(8px);
-  width: auto;
+  width: 300px;
+  flex-wrap: wrap;
 }
 .footer span {
   font-size: 14px;
@@ -21,4 +22,8 @@
 .footer h5 {
   margin: 0;
   display: flex;
+}
+
+.footer h4 {
+  margin-right: 5px;
 }
