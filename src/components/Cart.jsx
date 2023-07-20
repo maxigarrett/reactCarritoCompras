@@ -5,7 +5,7 @@ import { useCart } from "../hooks/useCart";
 
 export const Cart = () => {
   const cartCheckBoxId = useId();
-  const { cart } = useCart();
+  const { cart, addToCart, clearCart } = useCart();
 
   return (
     <>
@@ -15,6 +15,9 @@ export const Cart = () => {
       <input id={cartCheckBoxId} type="checkbox" hidden />
 
       <aside className="cart">
+        <button onClick={() => clearCart()}>
+          <ClearCartIcon />
+        </button>
         <ul>
           {cart.map((item) => {
             return (
@@ -25,15 +28,12 @@ export const Cart = () => {
                 </div>
                 <footer>
                   <small>{item.cuantity}</small>
-                  <button>+</button>
+                  <button onClick={() => addToCart(item)}>+</button>
                 </footer>
               </li>
             );
           })}
         </ul>
-        <button>
-          <ClearCartIcon />
-        </button>
       </aside>
     </>
   );
