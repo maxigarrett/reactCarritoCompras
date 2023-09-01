@@ -20,11 +20,13 @@ export const Cart = () => {
         </button>
         <ul>
           {cart.map((item) => {
+            console.log(item.cuantity);
             return (
               <li key={item.id}>
                 <img src={item.thumbnail} alt="iphone" />
                 <div>
-                  <strong>{item.title}</strong> - {`$ ${item.price}`}
+                  <strong>{item.title}</strong> -{" "}
+                  {`$ ${item.price * item.cuantity}`}
                 </div>
                 <footer>
                   <small>{item.cuantity}</small>
